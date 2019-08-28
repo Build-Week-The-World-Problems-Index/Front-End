@@ -1,9 +1,171 @@
 .dashboard {
   display: flex;
   justify-content: center;
+  flex-flow: column;
+  margin: 0 auto 0 auto;
+ 
+  h4{
+    text-align: start;
+    margin-left: 3rem;
+  }
   .dashboard-header {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin: auto;
+
+    @media(width: $mobile){
+      flex-flow: column;
+    }
+
+    button {
+      border-radius: 30px;
+      height: 1rem;
+      font-size: 1rem;
+      padding-bottom: 2rem;
+      margin-right: 0;
+      background: #585858;
+      color: white;
+    }
+
     h1 {
       font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+      margin-bottom: 3rem;
+      font-size: 4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid lightgray;
+
+      @media(width: $mobile){
+        border: none;
+      }
+
+    }
+
+
+    .first-half {
+      display: flex;
+      width: 68%;
+      justify-content: flex-end;
+    }
+
+    .second-half {
+      display: flex;
+      width: 45%;
+      justify-content: flex-end;
+
+      @media(width: $mobile){
+        button{
+          width: 10rem;
+          margin-left: 6rem;
+        }
+      }
+    }
+
+
+    .first-half, .second-half{
+      @media(width: $mobile){
+        flex-flow: column;
+        // width: 100%;
+        width: 45%;
+        justify-content: center;
+      }
+    }
+
+  }
+
+
+  .dashboard-content {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 110rem;
+
+
+    @media(width: $mobile){
+      flex-flow: column;
     }
   }
+
+  .saved-problems,
+  .problem-contributions,
+  .solution-contributions {
+    display: flex;
+    flex-flow: column;
+    width: 33%;
+    margin: 0;
+
+    @media(width: $mobile){
+      margin: 0 4rem 5rem 4rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid lightgray;
+
+    }
+
+    button {
+      width: 65%;
+      border-radius: 30px;
+      margin: 2rem 2rem 2rem 2rem; //
+      padding-left: 1rem;
+      ;
+      padding-right: 3rem;
+      text-align: left;
+
+    }
+
+    .bubble-div{
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+    }
+
+    .problem-bubble{
+      margin-bottom: 0;
+    }
+
+    .bubble-top-info{
+      display: flex;
+      flex-flow: row;
+      margin-bottom: 0;
+
+      
+      a{
+        text-decoration: underline;
+      }
+    }
+    .bubble-top-info div{
+      margin-top: 2rem;
+    }
+
+    .bubble-bottom-info{
+      margin-top: .5rem;
+      margin-left: 3.2rem;
+      text-align: start;
+
+
+    }
+
+  }
+
+
+  .saved-problems-list,
+  .problem-contributions-list {
+    button {
+      background: #585858;
+      color: white;
+      &:hover{
+        background: white;
+        color: #585858;
+        border: 1px solid #585858;
+        height: 38.5px;
+      }
+    }
+  }
+
+  .solution-contributions-list {
+    button {
+      background: white;
+      border: 1px solid #585858;
+    }
+  }
+
 }

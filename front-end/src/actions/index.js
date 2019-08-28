@@ -105,14 +105,16 @@ export const SUBMIT_SOLUTION_START = 'SUBMIT_SOLUTION_START'
 export const SUBMIT_SOLUTION_SUCCESS = 'SUBMIT_SOLUTION_SUCCESS'
 export const SUBMIT_SOLUTION_FAILURE = 'SUBMIT_SOLUTION_FAILURE'
 
-export const submitSolution = (solution) => dispatch => {
+export const submitSolution = (solutionObj) => dispatch => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SOLUTION_START })
     axios
       .post(
-        'http://localhost:3000', solution)
+        'https://the-world-problems-index.herokuapp.com/api/problems/solutions',
+        solutionObj
+      )
       .then((res) => {
-        console.log('res',res)
+        console.log('res', res)
         dispatch({ type: SUBMIT_SOLUTION_SUCCESS, payload: res.data.data })
       })
       .catch((err) => {

@@ -10,8 +10,9 @@ const Signup = (props) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    props.signup(creds)
+    e.preventDefault();
+    props.signup(creds);
+    console.log('signup user object: ', props.user);
     setCreds({ username: '', password: '' })
   }
 
@@ -46,7 +47,7 @@ const Signup = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    signingUp: state.userReducer.signingUp
+    signingUp: state.userReducer.signingUp,
   }
 }
 export default connect(

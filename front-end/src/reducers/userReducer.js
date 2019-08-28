@@ -3,8 +3,7 @@ import { LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions";
 
 export const initialState = {
   signingUp: false,
-  problemList: [],
-  problem: {},
+  user: {},
   signUpErr: '',
   loginErr: ""
 };
@@ -20,9 +19,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: false,
-        user: {
-          ...action.payload
-        }
+        user: action.payload
       };
     case SIGNUP_FAILURE:
       return {
@@ -39,9 +36,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: false,
-        user: {
-          ...action.payload
-        }
+        user: action.payload
       };
     case LOGIN_FAILURE:
       return {

@@ -3,25 +3,31 @@ import { connect } from 'react-redux'
 import { submitSolution } from '../actions'
 
 class SolutionForm extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      problem_id: '',
-      solution: ''
+      name: '',
+      userId: '123',
+      problemId: ''
     }
   }
 
   handleChange = (e) => {
-    this.setState({ ...this.state, solution: e.target.value })
+    this.setState({ ...this.state, name: e.target.value })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    submitSolution(this.state.solution)
+    this.props.submitSolution(this.state)
     this.setState({
-      problem_id: '',
-      solution: ''
+      name: '',
+      userId: '',
+      problemId: ''
     })
+  }
+
+  componentDidMount() {
+    this.setState({ ...this.state, problemId: this.props.id })
   }
 
   render() {
@@ -30,7 +36,12 @@ class SolutionForm extends React.Component {
         <div className='solution-form'>
           <h4>add a solution to this problem</h4>
           <form onSubmit={this.handleSubmit}>
-            <input type='text' name='solution' value={this.state.solution} onChange={this.handleChange} />
+            <input
+              type='text'
+              name='name'
+              value={this.state.solution}
+              onChange={this.handleChange}
+            />
             <button>submit</button>
           </form>
         </div>
@@ -47,5 +58,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(
   mapStateToProps,
-  {submitSolution}
+  { submitSolution }
 )(SolutionForm)

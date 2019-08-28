@@ -14,7 +14,7 @@ const Login = props => {
     e.preventDefault();
     props.login(creds).then(() => {
       props.history.push('/dashboard')
-    })
+    });
     setCreds({ username: "", password: "" });
   };
 
@@ -55,7 +55,7 @@ const Login = props => {
 
 const mapStateToProps = (state) => {
   return {
-    signingUp: state.userReducer.signingUp
+    signingUp: state.userReducer.signingUp,
   }
 };
 export default connect(
