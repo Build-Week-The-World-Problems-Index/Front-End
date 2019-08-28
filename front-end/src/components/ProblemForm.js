@@ -6,21 +6,25 @@ class ProblemForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: "",
+      problemId: "",
+      user: "",
+      description: "",
       title: ""
     };
   }
 
   handleChange = e => {
-    this.setState({ ...this.state, problem: e.target.value });
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    submitProblem(this.state.problem);
+    submitProblem(this.state);
     this.setState({
-      name: "",
-      description: ""
+      problemId: "",
+      user: "",
+      description: "",
+      title: ""
     });
   };
 
@@ -32,14 +36,14 @@ class ProblemForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
-              name="problem-name"
-              value={this.state.name}
+              name="title"
+              value={this.state.title}
               onChange={this.handleChange}
             />
             <h4>Problem Description</h4>
             <input
               type="text"
-              name="problem-description"
+              name="description"
               value={this.state.description}
               onChange={this.handleChange}
             />

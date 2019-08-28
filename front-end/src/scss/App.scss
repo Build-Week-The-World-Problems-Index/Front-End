@@ -1,14 +1,15 @@
-@import 'reset';
-@import 'variables';
-@import 'mixins';
-@import 'Navigation';
-@import 'HomeDisplay';
-@import 'ProblemDisplay';
-@import 'Dashboard';
-@import 'Login';
-@import 'Signup';
-@import 'Footer';
-@import url('https://fonts.googleapis.com/css?family=Orienta|Poiret+One&display=swap');
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "Navigation";
+@import "HomeDisplay";
+@import "ProblemDisplay";
+@import "ProblemForm";
+@import "Dashboard";
+@import "Login";
+@import "Signup";
+@import "Footer";
+@import url("https://fonts.googleapis.com/css?family=Orienta|Poiret+One&display=swap");
 
 * {
   box-sizing: border-box;
@@ -19,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-family: "Orienta", Arial, Helvetica, sans-serif;
   text-align: center;
   color: $grey-black;
   -webkit-font-smoothing: antialiased;
@@ -52,7 +53,7 @@ h6 {
 
 a {
   font-size: 1.8rem;
-  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-family: "Orienta", Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
 
@@ -66,7 +67,7 @@ input {
   margin: 1rem;
   border-radius: 4px;
   border: 1px solid $grey-light;
-  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-family: "Orienta", Arial, Helvetica, sans-serif;
   font-size: 1.4rem;
   color: $grey-dark;
   -webkit-tap-highlight-color: transparent;
@@ -77,7 +78,7 @@ button {
   margin: 1rem;
   border-radius: 4px;
   border: none;
-  font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  font-family: "Orienta", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
   text-decoration: none;
   cursor: pointer;
@@ -91,7 +92,7 @@ button:focus {
 }
 
 button:hover {
-  box-shadow: 0 0 3px 3px rgba($grey-light, .3);
+  box-shadow: 0 0 3px 3px rgba($grey-light, 0.3);
 }
 
 .App {
