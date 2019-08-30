@@ -1,16 +1,16 @@
-.footer-container{
+.footer-container {
     position: absolute;
     display: block;
-    // bottom: 0;
-    top: 220%;
+    bottom: 0;
+    // top: 220%;
     width: 100%;
     background: #f8f8f8;
     // margin-top: 5rem;
 
     .footer-text{
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.4rem;
         padding: 20px;
-        
+
     }
 }

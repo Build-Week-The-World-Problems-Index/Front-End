@@ -5,7 +5,6 @@ import { login, fetchUser } from '../actions'
 
 const Login = (props) => {
   const [creds, setCreds] = useState({ username: '', password: '' })
-
   const handleChange = (e) => {
     setCreds({ ...creds, [e.target.name]: e.target.value })
   }
@@ -14,8 +13,8 @@ const Login = (props) => {
     e.preventDefault()
     props.login(creds).then(() => {
       props.history.push('/dashboard')
-    // }).then(()=> {
-    //   props.fetchUser(props.user.user.id)
+      // }).then(()=> {
+      //   props.fetchUser(props.user.user.id)
     })
     console.log('login props', props)
   }
@@ -62,6 +61,7 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
   return {
     signingUp: state.userReducer.signingUp,
+    loggedIn: state.userReducer.loggedIn,
     user: state.userReducer.user
   }
 }

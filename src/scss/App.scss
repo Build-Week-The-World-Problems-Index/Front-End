@@ -10,6 +10,7 @@
 @import 'Footer';
 @import 'UserProblemForm';
 @import 'UserSolutionContributionsList';
+@import 'ProblemSolutionsList';
 
 @import url('https://fonts.googleapis.com/css?family=Orienta|Poiret+One&display=swap');
 
@@ -98,9 +99,10 @@ button:hover {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // text-align: center;
+  position: relative;
   min-height: 100vh;
 
 }

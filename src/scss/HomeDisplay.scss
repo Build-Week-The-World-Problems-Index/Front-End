@@ -14,18 +14,25 @@
     width: 1000px;
 
     .home-headline {
-      font-family: 'Orienta', Arial, Helvetica, sans-serif;
       margin: 0 2rem 2rem 2rem;
+      font-family: 'Orienta', Arial, Helvetica, sans-serif;
+      line-height: 3rem;
       color: $grey-dark;
+      max-width: 70%;
+
     }
-    .problem-bubble {
-      margin: 1rem;
-      border-radius: 30px;
-      border: 1px solid $grey-light;
-      font-size: 1.6rem;
-      max-height: 4.4rem;
-      color: $grey-dark;
-      background: white;
+    .home-problems {
+      // background: tan;
+
+      .problem-bubble {
+        margin: 1rem;
+        border-radius: 30px;
+        border: 1px solid $grey-light;
+        font-size: 1.6rem;
+        max-height: 4.4rem;
+        color: $grey-dark;
+        background: white;
+      }
     }
   }
 }

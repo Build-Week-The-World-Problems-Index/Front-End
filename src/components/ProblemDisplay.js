@@ -7,15 +7,14 @@ import ProblemSolutionsList from './ProblemSolutionsList';
 import RelatedProblemList from '../components/RelatedProblemList';
 
 const ProblemDisplay = props => {
-
+  console.log('problemdisaply props', props)
   const id = props.match.params.id;
 
   useEffect(() => {
     props.fetchSingleProblem(id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(props.problem);
+  // console.log('props problems',props.problem);
   return (
     <div className='problem-container'>
       <div className='problem-header'>
@@ -34,23 +33,17 @@ const ProblemDisplay = props => {
         <div className='problem-related-container'>
           <h4>Problems with related solutions</h4>
           <div className='problem-related-solutions'>
-            {/* {solutionMockData.map((sol) => (
-                <button key={sol} className='problem-bubble'>
-                  {sol}
-                </button>
-              ))} */}
             <RelatedProblemList
               relatedProblems={props.problem.relatedProblems}
             />
           </div>
         </div>
-        <SolutionForm id={id} />
       </div>
+      <SolutionForm id={id} />
     </div>
   );
 };
 const mapStateToProps = state => {
-  console.log('mapstate', state);
   return {
     fetchingProblems: state.problemsReducer.fetchingProblems,
     problem: state.problemsReducer.problem,

@@ -8,7 +8,7 @@ const HomeDisplay = props => {
   // const [problemArr, setProblemArr] = useState([])
   useEffect(() => {
     props.fetchProblems();
-  }, [props]);
+  }, []);
 
   const problemList = props.problemsList.reduce((unique, curr) => {
     if (!unique.some(obj => obj.id === curr.id && obj.title === curr.title)) {
@@ -21,16 +21,17 @@ const HomeDisplay = props => {
     <div className='home-container'>
       <div className='home-content'>
         <h2 className='home-headline'>
-          Investigate problems of the world, consider their solutions, and
-          explore related problems and solutions
+          Investigate different problems of the world touching many lives. Consider, contribute to and support their solutions. Explore and compare related problems and solutions to discover impactful connections.
         </h2>
-        {problemList.map(item => {
-          return (
-            <Link to={`problems/${item.id}`} key={item.id}>
-              <button className='problem-bubble'>{item.title}</button>
-            </Link>
-          );
-        })}
+        <div className='home-problems'>
+          {problemList.map(item => {
+            return (
+              <Link to={`problems/${item.id}`} key={item.id}>
+                <button className='problem-bubble'>{item.title}</button>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

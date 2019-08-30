@@ -7,8 +7,15 @@
 
   h1 {
     padding-bottom: 2rem;
+    font-size: 3.6rem;
+    font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+
   }
   label {
     font-size: 1.4rem;
+  }
+    button {
+      margin-left: 2rem;
+    color: $grey-black;
   }
 }

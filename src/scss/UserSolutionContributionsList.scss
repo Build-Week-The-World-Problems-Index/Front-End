@@ -5,58 +5,58 @@
   width: 33%;
   margin: 0;
 
+  .solution-contributions-list {
+    button {
+      background: white;
+      border: 1px solid $grey;
+    }
+  }
+
   @media (width: $mobile) {
     margin: 0 4rem 5rem 4rem;
     padding-bottom: 5rem;
     border-bottom: 1px solid lightgray;
   }
 
-      button {
-      width: 65%;
-      border-radius: 30px;
-      margin: 2rem;
-      padding-left: 1rem;
-      padding-right: 3rem;
-      text-align: left;
-    }
-
-    .bubble-div {
-      display: flex;
-      flex-flow: column;
-      width: 100%;
-    }
-
-    .problem-bubble {
-      margin-bottom: 0;
-    }
-
-    .bubble-top-info {
-      display: flex;
-      flex-flow: row;
-      margin-bottom: 0;
-
-      p {
-        font-size: 1.2rem;
-      }
-      .delete {
-        text-decoration: underline;
-      }
-    }
-    .bubble-top-info div {
-      margin-top: 2rem;
-    }
-
-    .bubble-bottom-info {
-      margin-top: 0.5rem;
-      margin-left: 3.2rem;
-      text-align: start;
-    }
-
-  .solution-contributions-list {
-    button {
-      background: white;
-      border: 1px solid #585858;
-    }
+  button {
+    width: 65%;
+    border-radius: 30px;
+    margin: 2rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    text-align: left;
   }
 
+  .bubble-div {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+
+  .problem-bubble {
+    margin-bottom: 0;
+  }
+
+  .bubble-top-info {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 0;
+
+    p {
+      font-size: 1.2rem;
+    }
+    .delete {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .bubble-top-info div {
+    margin-top: 2rem;
+  }
+
+  .bubble-bottom-info {
+    margin-top: 0.5rem;
+    margin-left: 3.2rem;
+    text-align: start;
+  }
 }

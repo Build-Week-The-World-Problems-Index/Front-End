@@ -3,12 +3,11 @@
   justify-content: center;
   align-items: flex-start;
   background: $grey-white;
-  padding: 1rem;
- 
+  padding: 3rem 0 10rem 0;
 
   h2 {
+    margin: 3rem;
     font-family: 'Poiret One', Arial, Helvetica, sans-serif;
-    margin: 2rem;
   }
 
   form {
@@ -16,7 +15,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
     h6 {
+      font-size: 1.4rem;
       margin-top: 1rem;
     }
     input {
@@ -32,9 +33,10 @@
       -webkit-tap-highlight-color: transparent;
     }
     button {
-      background: #585858;
+      background: $grey-dark;
       color: white;
-      border: 1px solid transparent;
+      margin-left: .2rem;
+      padding: 0.8rem 3rem;
 
       &:hover{
         background: white;

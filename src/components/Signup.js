@@ -20,7 +20,7 @@ const Signup = (props) => {
     <>
       {!props.signingUp ? (
         <div className='signup'>
-          <h1>Sign Up</h1>
+          <h1>sign up</h1>
           <form onSubmit={handleSubmit}>
             <div className='signup-username'>
               <label>username</label>

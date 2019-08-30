@@ -1,0 +1,71 @@
+.problem-solutions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem 3rem;
+  padding-right: 3rem;
+  border-right: 1px solid $grey-white;
+
+  h4 {
+    padding-bottom: 1rem;
+    font-family: 'Orienta', Arial, Helvetica, sans-serif;
+  }
+
+  button {
+    width: 65%;
+    border-radius: 30px;
+    margin: 2rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    text-align: left;
+  }
+
+  .problem-solutions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .problem-solution {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .bubble-top-info {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .problem-bubble {
+        display: flex;
+        margin-bottom: 0;
+        border: 1px solid $grey;
+      }
+      .problem-side-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 1rem;
+        p {
+          font-size: 1.3rem;
+          width: 70px;
+        }
+      }
+      .delete {
+        text-decoration: underline;
+      }
+      .bubble div {
+        margin-top: 2rem;
+      }
+      .bubble-bottom-info {
+        margin-top: 0.5rem;
+        margin-left: 3.2rem;
+        font-size: 1.3rem;
+        text-align: start;
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import { USER_FETCHING, USER_SUCCESS, USER_FAILURE } from '../actions';
 
 export const initialState = {
+  fetchingData: false,
   userData: {},
+  error: ''
 };
 
 const userDataReducer = (state = initialState, action) => {
@@ -9,18 +11,18 @@ const userDataReducer = (state = initialState, action) => {
     case USER_FETCHING:
       return {
         ...state,
-        signingUp: true,
+        fetchingData: true,
       };
     case USER_SUCCESS:
       return {
         ...state,
-        signingUp: false,
+        fetchingData: false,
         userData: action.payload,
       };
     case USER_FAILURE:
       return {
         ...state,
-        signingUp: false,
+        fetchingData: false,
         error: action.payload,
       };
     default:

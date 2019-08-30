@@ -7,13 +7,14 @@ class SolutionForm extends React.Component {
     super(props)
     this.state = {
       name: '',
-      userId: '123', //TODO: get live user ID
+      userId: '',
       problemId: ''
     }
   }
 
   handleChange = (e) => {
     this.setState({ ...this.state, name: e.target.value })
+    // console.log('sol FORM state', this.state)
   }
 
   handleSubmit = (e) => {
@@ -34,7 +35,7 @@ class SolutionForm extends React.Component {
     return (
       <>
         <div className='solution-form'>
-          <h4>add a solution to this problem</h4>
+          <h2>add a solution to this problem</h2>
           <form onSubmit={this.handleSubmit}>
             <input
               type='text'

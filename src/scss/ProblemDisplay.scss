@@ -1,7 +1,8 @@
 .problem-container {
   display: flex;
   justify-content: center;
-  flex-flow: row wrap;
+  align-items: center;
+  flex-direction: column;
 
   .problem-header {
     display: flex;
@@ -12,25 +13,23 @@
     padding-bottom: 3rem;
     border-bottom: 1px solid $grey-light;
 
-    @media (max-width: $mobile){
+    @media (max-width: $mobile) {
       flex-flow: column;
     }
-
 
     h1 {
       padding-right: 2rem;
       font-family: 'Orienta', Arial, Helvetica, sans-serif;
 
-      @media (max-width: $mobile){
+      @media (max-width: $mobile) {
         padding: 3rem 0 3rem 0;
       }
-  
     }
     p {
       padding-left: 2rem;
       max-width: 60%;
 
-      @media (max-width: $mobile){
+      @media (max-width: $mobile) {
         max-width: 90%;
       }
     }
@@ -39,48 +38,18 @@
   .problem-content {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: flex-start;
     margin: 0 2rem 2rem 2rem;
     color: $grey-dark;
 
-    .problem-solutions-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding-right: 3rem;
-      margin: 3rem;
-      border-right: 1px solid $grey-white;
-
-      h4 {
-        padding-bottom: 1rem;
-        font-family: 'Orienta', Arial, Helvetica, sans-serif;
-      }
-      .problem-solutions {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        .problem-solutions-bubble {
-          margin: 1rem;
-          border-radius: 30px;
-          border: 1px solid $grey-light;
-          font-size: 1.6rem;
-          padding: 1rem 2rem;
-          color: $grey-dark;
-          background-color: $grey-white;
-        }
-      }
-    }
     .problem-related-container {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      margin: 2rem 3rem;
+      max-width: 70%;
       color: $grey-dark;
-      max-width: 40%;
 
       h4 {
         padding-bottom: 1rem;
@@ -97,25 +66,29 @@
         }
       }
     }
-    .solution-form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-top: 1px solid $grey-light;
-      padding-top: 3rem;
+  }
+  .solution-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3rem 0 10rem 0;
+    background: $grey-white;
 
-      @media (max-width: $mobile){
-        flex-flow: column;
-        margin: 2rem;
-      }
+    @media (max-width: $mobile) {
+      flex-flow: column;
+      margin: 2rem;
+    }
 
-      h4 {
-        font-family: 'Orienta', Arial, Helvetica, sans-serif;
-      }
-      button {
-        padding: 0.8rem 3rem;
-        background: $grey-light;
-      }
+    h2 {
+      margin: 3rem 1rem;
+      font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    }
+    button {
+      padding: 0.8rem 3rem;
+      background: $grey-dark;
+      color: white;
+      // margin-left: .2rem;
     }
   }
 }

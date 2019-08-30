@@ -10,12 +10,6 @@ import {
   SINGLE_PROBLEM_FAILURE,
 } from '../actions';
 
-// import {
-//   RELATED_PROBLEMS_FETCHING,
-//   RELATED_PROBLEMS_SUCCESS,
-//   RELATED_PROBLEMS_FAILURE
-// } from '../actions'
-
 import {
   SUBMIT_PROBLEM_START,
   SUBMIT_PROBLEM_SUCCESS,
@@ -133,9 +127,7 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         isSubmitting: false,
-        // problemsList: state.problemsList.filter(
-        //   (el) => el.id !== action.payload.id
-        // )
+        problemsList: action.payload.id // need to test this
       }
     case DELETE_SOLUTION_FAILURE:
       return {
