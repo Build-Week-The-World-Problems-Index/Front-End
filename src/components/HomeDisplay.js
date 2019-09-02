@@ -8,7 +8,7 @@ const HomeDisplay = props => {
   // const [problemArr, setProblemArr] = useState([])
   useEffect(() => {
     props.fetchProblems();
-  }, [props]);
+  }, []);
 
   const problemList = props.problemsList.reduce((unique, curr) => {
     if (!unique.some(obj => obj.id === curr.id && obj.title === curr.title)) {

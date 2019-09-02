@@ -1,29 +1,28 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { submitProblem } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { submitProblem } from '../actions';
 
 class UserProblemForm extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      id: '',
-      title: '',
-      description: ''
-    }
-  }
+  state = {
+    userId: this.props.user.user.id,
+    title: '',
+    description: '',
+  };
 
-  handleChange = (e) => {
-    this.setState({ ...this.state, [e.target.name]: e.target.value })
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    submitProblem(this.state.problem)
+  handleChange = e => {
     this.setState({
-      name: '',
-      description: ''
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.submitProblem(this.state);
+    this.setState({
+      title: '',
+      description: '',
+    });
+  };
 
   render() {
     return (
@@ -34,7 +33,7 @@ class UserProblemForm extends React.Component {
           <input
             type='text'
             name='title'
-            value={this.state.name}
+            value={this.state.title}
             onChange={this.handleChange}
           />
           <h6>Description</h6>
@@ -47,16 +46,17 @@ class UserProblemForm extends React.Component {
           <button>submit</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isSubmitting: state.problemsReducer.isSubmitting,
-  }
-}
+    user: state.userReducer.user,
+  };
+};
 export default connect(
   mapStateToProps,
-  { submitProblem }
-)(UserProblemForm)
+  { submitProblem },
+)(UserProblemForm);

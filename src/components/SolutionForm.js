@@ -1,36 +1,39 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { submitSolution } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { submitSolution } from '../actions';
 
 class SolutionForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       name: '',
-      userId: '123', //TODO: get live user ID
-      problemId: ''
-    }
+      userId: this.props.user.user.id, //TODO: get live user ID
+      problemId: this.props.id,
+    };
   }
 
-  handleChange = (e) => {
-    this.setState({ ...this.state, name: e.target.value })
-  }
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.submitSolution(this.state)
+  handleSubmit = e => {
+    e.preventDefault();
+    const { name, userId, problemId } = this.state;
+    console.log('in handle submit......', problemId);
+    this.props.submitSolution(this.state);
     this.setState({
       name: '',
       userId: '',
-      problemId: ''
-    })
-  }
-
-  componentDidMount() {
-    this.setState({ ...this.state, problemId: this.props.id })
-  }
+      problemId: '',
+    });
+  };
 
   render() {
+    console.log('problem....', this.state.problemId);
+
     return (
       <>
         <div className='solution-form'>
@@ -46,17 +49,19 @@ class SolutionForm extends React.Component {
           </form>
         </div>
       </>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isSubmitting: state.problemsReducer.isSubmitting,
-    solution: state.problemsReducer.solution
-  }
-}
+    solution: state.problemsReducer.solution,
+    user: state.userReducer.user,
+    problem: state.problemsReducer.problem,
+  };
+};
 export default connect(
   mapStateToProps,
-  { submitSolution }
-)(SolutionForm)
+  { submitSolution },
+)(SolutionForm);

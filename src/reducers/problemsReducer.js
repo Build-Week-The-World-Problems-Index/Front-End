@@ -37,9 +37,8 @@ import {
 import {
   DELETE_SOLUTION_START,
   DELETE_SOLUTION_SUCCESS,
-  DELETE_SOLUTION_FAILURE
-} from '../actions'
-
+  DELETE_SOLUTION_FAILURE,
+} from '../actions';
 
 export const initialState = {
   fetchingProblems: false,
@@ -61,7 +60,7 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingProblems: false,
-        problemsList: [...state.problemsList, ...action.payload],
+        problemsList: [...action.payload],
       };
     case PROBLEMS_FAILURE:
       return {
@@ -96,7 +95,6 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         isSubmitting: false,
-        problemsList: [...state.problemsList, ...action.payload],
         problem: action.payload,
       };
     case SUBMIT_PROBLEM_FAILURE:
@@ -115,7 +113,7 @@ const problemsReducer = (state = initialState, action) => {
       return {
         ...state,
         isSubmitting: false,
-        solution: action.payload,
+        problem: action.payload,
       };
     case SUBMIT_SOLUTION_FAILURE:
       return {
@@ -127,8 +125,8 @@ const problemsReducer = (state = initialState, action) => {
     case DELETE_SOLUTION_START:
       return {
         ...state,
-        isSubmitting: true
-      }
+        isSubmitting: true,
+      };
     case DELETE_SOLUTION_SUCCESS:
       return {
         ...state,
@@ -136,7 +134,7 @@ const problemsReducer = (state = initialState, action) => {
         // problemsList: state.problemsList.filter(
         //   (el) => el.id !== action.payload.id
         // )
-      }
+      };
     case DELETE_SOLUTION_FAILURE:
       return {
         ...state,
