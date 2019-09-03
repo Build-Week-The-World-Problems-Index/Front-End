@@ -31,7 +31,7 @@ export const login = user => dispatch => {
   console.log('LOGIN user: ', user);
   dispatch({ type: LOGIN_FETCHING });
   return axios
-    .post('http://localhost:5000/api/auth/login', user)
+    .post('https://the-world-problems-index.herokuapp.com/api/auth/login', user)
     .then(res => {
       console.log('token response: ', res);
       localStorage.setItem('auth-token', res.data.token);
@@ -70,7 +70,7 @@ export const PROBLEMS_FAILURE = 'PROBLEMS_FAILURE';
 export const fetchProblems = () => dispatch => {
   dispatch({ type: PROBLEMS_FETCHING });
   return axios
-    .get('http://localhost:5000/api/problems')
+    .get('https://the-world-problems-index.herokuapp.com/api/problems')
     .then(res => {
       console.log('PROBLEM LIST res: ', res);
       dispatch({ type: PROBLEMS_SUCCESS, payload: res.data });
@@ -88,7 +88,7 @@ export const SINGLE_PROBLEM_FAILURE = 'SINGLE_PROBLEM_FAILURE';
 export const fetchSingleProblem = id => dispatch => {
   dispatch({ type: SINGLE_PROBLEM_FETCHING });
   return axios
-    .get(`http://localhost:5000/api/problems/${id}`)
+    .get(`https://the-world-problems-index.herokuapp.com/api/problems/${id}`)
     .then(res => {
       console.log('SINGLE PROBLEM res: ', res);
       dispatch({ type: SINGLE_PROBLEM_SUCCESS, payload: res.data });
@@ -107,7 +107,10 @@ export const submitProblem = problem => dispatch => {
   console.log('problem:', problem);
   dispatch({ type: SUBMIT_PROBLEM_START });
   return axios
-    .post('http://localhost:5000/api/problems', problem)
+    .post(
+      'https://the-world-problems-index.herokuapp.com/api/problems',
+      problem,
+    )
     .then(res => {
       console.log('Submit Problem res: ', res.data);
       dispatch({ type: SUBMIT_PROBLEM_SUCCESS, payload: res.data });
@@ -126,7 +129,10 @@ export const submitSolution = solution => dispatch => {
   console.log(solution);
   dispatch({ type: SUBMIT_SOLUTION_START });
   return axios
-    .post('http://localhost:5000/api/problems/solutions', solution)
+    .post(
+      'https://the-world-problems-index.herokuapp.com/api/problems/solutions',
+      solution,
+    )
     .then(res => {
       console.log('SUBMIT SOLUTION res:', res);
       dispatch({ type: SUBMIT_SOLUTION_SUCCESS, payload: res.data });
@@ -178,7 +184,7 @@ export const addVote = (solutionId, userId, problemId) => dispatch => {
     .then(res =>
       dispatch({
         type: ADD_VOTE_SUCCESS,
-        payload: { solutionId: solutionId, problem: res.data },
+        payload: res.data,
       }),
     )
     .catch(error => dispatch({ type: ADD_VOTE_FAILURE, payload: error }));
@@ -188,17 +194,21 @@ export const REMOVE_VOTE_START = 'REMOVE_VOTE_START';
 export const REMOVE_VOTE_SUCCESS = 'REMOVE_VOTE_SUCCESS';
 export const REMOVE_VOTE_FAILURE = 'REMOVE_VOTE_FAILURE';
 
-export const removeVote = (solutionId, userId) => dispatch => {
+export const removeVote = (solutionId, userId, problemId) => dispatch => {
+  console.log('remove vote.......', solutionId, userId);
   dispatch({ type: REMOVE_VOTE_START });
   return axios
     .put(
       `https://the-world-problems-index.herokuapp.com/api/problems/solutions/unvote/${solutionId}`,
-      userId,
+      {
+        userId,
+        problemId,
+      },
     )
     .then(res =>
       dispatch({
         type: REMOVE_VOTE_SUCCESS,
-        payload: { solutionId: solutionId, votes: res.data },
+        payload: res.data,
       }),
     )
     .catch(error => dispatch({ type: REMOVE_VOTE_FAILURE, payload: error }));

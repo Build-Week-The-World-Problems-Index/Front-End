@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { addVote, removeVote } from '../actions';
 
 const ProblemSolution = props => {
   const voted = () => {
-    const user = props.user.user.id.toString();
-    const problem = props.problem._id.toString();
-    // props.problem.problemSolutions.forEach(solution => solution._id === props.solution._id  && (solution.votes.filter(vote => )))
+    const user = props.user.user.id;
+    const problem = props.problem._id;
+
+    props.problem.problemSolutions.forEach(solution => {
+      if (solution._id === props.solution._id) {
+        if (solution.votes.some(vote => vote.user === user)) {
+          props.removeVote(props.solution._id, user, problem);
+        } else {
+          props.addVote(props.solution._id, user, problem);
+        }
+      }
+    });
   };
 
   return (
     <div className='problem-solution'>
       <button onClick={voted}>{props.solution.name}</button>
-      <p></p>
       <p>votes</p>
+      <div>{props.solution.votes.length}</div>
     </div>
   );
 };
